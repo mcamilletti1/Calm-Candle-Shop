@@ -1,0 +1,30 @@
+<ul>
+    <li *ngFor="let candle of candles">
+        <a routerLink="/candle/{{candle.id}}">
+            <img [src]="candle.imageUrl" [alt]="candle.name"/>
+            <div class="content">
+               <div class="name">
+                {{candle.name}}
+               </div>
+               <span class="favorite {{candle.favorite?'':'not'}}">
+                ❤
+               </span>
+               <div class="stars">
+                <star-rating [stars]="candle.stars" />
+               </div>
+               <div class="product-item-footer">
+                <div class="origins">
+                    <span *ngFor="let scent of candle.scents">
+                        {{scent}}
+                    </span>
+                </div>
+                <div class="price">
+                    <span>
+                      {{candle.price | currency}}  
+                    </span>
+                </div>
+               </div>
+            </div>
+        </a>
+    </li>
+</ul>
