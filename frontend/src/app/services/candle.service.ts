@@ -27,4 +27,8 @@ export class CandleService {
     this.getAll():
     this.getAll().filter(candle => candle.tags?.includes(tag));
   }
+
+  getCandleById(candleId:string):Candle{
+    return this.getAll().find(candle => candle.id == candleId) ?? new Candle();
+  }
 }
