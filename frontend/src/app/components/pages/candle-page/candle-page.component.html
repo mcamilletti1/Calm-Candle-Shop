@@ -1,1 +1,38 @@
-<p>candle-page works!</p>
+<div class="container">
+    <img [src]="candle.imageUrl" [alt]="candle.name"/>
+    <div class="details">
+        <div class="header">
+            <span class="name">
+               {{candle.name}} 
+            </span>
+            <span class="favorite {{candle.favorite? '': 'not'}}">
+                ❤
+            </span>
+        </div>
+        <div class="rating">
+            <star-rating [stars]="candle.stars" [size]="1.8" />  
+        </div>
+        <div class="scents">
+          <span *ngFor="let scent of candle.scents">
+            {{scent}}
+          </span> 
+        </div>
+        <div class="tags">
+            <a *ngFor="let tag of candle.tags" routerLink="/tag/{{tag}}">
+                {{tag}}
+            </a>
+        </div>
+        <div class="description">
+            <span>
+             {{candle.description}}   
+            </span>
+        </div>
+        <div class="price">
+            <span>
+                {{candle.price | currency}}
+            </span>
+        </div>
+
+        <button>Add To Cart</button>
+    </div>
+</div>

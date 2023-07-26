@@ -1,4 +1,4 @@
-//import { Review } from "./Review"
+
 
 export class Candle{
     id!:string;
@@ -9,6 +9,6 @@ export class Candle{
     imageUrl!: string;
     tags!: string[];
     scents!: string[];
-    //reviews: Review[] = [];
+    reviews!: string[];
     description!: string;
 }
