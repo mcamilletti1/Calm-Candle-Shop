@@ -1,4 +1,5 @@
 import { Candle } from './app/shared/models/Candle';
+import { Tag } from './app/shared/models/Tag';
 
 export const candles: Candle[] = [
     {
@@ -8,7 +9,7 @@ export const candles: Candle[] = [
         favorite: false,
         stars: 5,
         imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/tbt/OUPR73CMB5EM7IJNWUBXTKOMXY.jpeg',
-        tags: ['autumn', 'aresh and clean'],
+        tags: ['autumn', 'fresh and clean'],
         scents: ['clove', 'lavender', 'basalm', 'clary sage', 'persimmon', 'rhubarb', 'lavender', 'geranium', 'eucalyptus woods', 'basalm'], 
         description: 'Spend the perfect autumn day strolling tree-lined streets with the scents of clove, lavender, balsam, and eucalyptus woods.'
     },
@@ -19,7 +20,7 @@ export const candles: Candle[] = [
         favorite: false,
         stars: 4.8,
         imageUrl: 'https://voltavienna.com/wp-content/uploads/2022/11/Volta_Provider-Store_River-Candle_Hikari2-1024x1412.jpg',
-        tags: ['Autumn', 'woody'],
+        tags: ['autumn', 'woody'],
         scents: ['cardamom', 'black vanilla', 'smoked oud', 'bergamot', 'red cedar', 'birch bark', 'amber', 'suede', 'burnished leather', 'mahogany wood'],
         description: 'Feel the cool autumn breeze on a twilight walk along the river, with the scents of cardamom, black vanilla, and smoked oud.'
     },
@@ -111,4 +112,17 @@ export const candles: Candle[] = [
         scents: ['rose', 'apple', 'citrus', 'geranium', 'musk'],
         description: 'An intoxicating English garden of fragrant heirloom roses. '
     }
+]
+
+export const tags: Tag[] = [
+   {name: 'spring', count: 3 },
+   {name: 'summer', count: 3},
+   {name: 'autumn', count: 4},
+   {name: 'winter', count: 1},
+   {name: 'fruity', count: 2},
+   {name: 'floral', count: 1},
+   {name: 'fresh and clean', count: 1},
+   {name: 'sweet & spicy', count: 1},
+   {name: 'citrus', count: 3},
+   {name: 'woody', count: 1}
 ]

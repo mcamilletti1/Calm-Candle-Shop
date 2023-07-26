@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Candle } from '../shared/models/Candle';
-import { candles } from 'src/data';
+import { candles, tags } from 'src/data';
+import { Tag } from '../shared/models/Tag';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,15 @@ export class CandleService {
 
   getAllCandlesBySearchTerm(searchTerm:string){
     return this.getAll().filter(candle => candle.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  }
+
+  getAllTags():Tag[]{
+    return tags
+  }
+
+  getAllCandlesByTag(tag:string):Candle[]{
+    return tag == "All"?
+    this.getAll():
+    this.getAll().filter(candle => candle.tags?.includes(tag));
   }
 }

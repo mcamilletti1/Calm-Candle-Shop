@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
     activatedRoute.params.subscribe((params) => {
       if(params.searchTerm)
       this.candles = this.candleService.getAllCandlesBySearchTerm(params.searchTerm);
+      else if(params.tag)
+      this.candles = this.candleService.getAllCandlesByTag(params.tag);
       else
       this.candles = candleService.getAll();
     })
