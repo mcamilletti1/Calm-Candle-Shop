@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CandleService } from 'src/app/services/candle.service';
 import { Candle } from 'src/app/shared/models/Candle';
 
@@ -9,8 +10,13 @@ import { Candle } from 'src/app/shared/models/Candle';
 })
 export class HomeComponent implements OnInit {
   candles: Candle[] =[];
-  constructor(private candleService:CandleService) {
-    this.candles = candleService.getAll();
+  constructor(private candleService:CandleService, activatedRoute: ActivatedRoute) {
+    activatedRoute.params.subscribe((params) => {
+      if(params.searchTerm)
+      this.candles = this.candleService.getAllCandlesBySearchTerm(params.searchTerm);
+      else
+      this.candles = candleService.getAll();
+    })
    }
 
   ngOnInit(): void {
