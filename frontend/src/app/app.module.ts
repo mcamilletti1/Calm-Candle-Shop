@@ -12,6 +12,7 @@ import { CandlePageComponent } from './components/pages/candle-page/candle-page.
 import { ReviewsComponent } from './components/partials/reviews/reviews.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { TitleComponent } from './components/partials/title/title.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TitleComponent } from './components/partials/title/title.component';
     CandlePageComponent,
     ReviewsComponent,
     CartPageComponent,
-    TitleComponent
+    TitleComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

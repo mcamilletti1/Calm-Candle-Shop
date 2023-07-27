@@ -1,4 +1,9 @@
-<div class="container">
+<app-not-found
+[visible]="!candle.id"
+notFoundMessage="Candle not found."
+resetLinkText="Go home">
+</app-not-found>
+<div *ngIf="candle.id" class="container">
     <img [src]="candle.imageUrl" [alt]="candle.name"/>
     <div class="details">
         <div class="header">
