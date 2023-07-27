@@ -194,5 +194,159 @@ export const reviews: Review[] = [
         title: 'cozy and comforting',
         rating: 5,
         comment: "A delectable blend of pumpkin, creamy notes, and rich caramelized maple; this scent brings the cozy and comforting essence of fall into my home. The fragrance is not overpowering, but rather it creates a warm and comforting ambiance that evokes the essence of the fall season. The quality of Yankee Candle is evident in every aspect of this candle."
+    },
+    {
+        id: '8',
+        name: 'Ryan Byrne',
+        title: 'Amazing fall scent!',
+        rating: 5,
+        comment: "This is a true Yankee candle! It smells so delicious, has a beautiful color and great throw! This is a new favorite of mine."
+    },
+    {
+        id: '9',
+        name: 'Julian Franco',
+        title: 'smells AMAZING!',
+        rating: 5,
+        comment: 'This may be one of my new favorite scents from Yankee candle! The scents is a sweet but spicy delectable long lasting scent that fills the whole house with a warm inviting smell. As per Yankee candle you know your are getting my a high quality candle product.'
+    },
+    {
+        id: '10',
+        name: 'Sydnee LaBuda',
+        title: 'Nice scent and large candle',
+        rating: 5,
+        comment: "Big large candle that smells and reminds me of autumn vibes. It smells so good! Perfect for family gatherings and if you want to get that feels like home vibe. I get the apple and spicy notes. Beautiful color and it gives me comfort."
+    },
+    {
+        id: '11',
+        name: 'Kara Goldin',
+        title: 'Smells amazing',
+        rating: 5,
+        comment: "The Yankee Candle - Spicy Sangria smells amazing! Love the 3 wick! Makes the smell much more stronger. My son took it to his room after the first night of burning this. Definitely recommend this candle!!"
+    },
+    {
+        id: '12',
+        name: 'Caitlyn Woodham',
+        title: 'Its a perfect blend of scents',
+        rating: 5,
+        comment: "This scent is so soothing. Great for an evening of relaxation"
+    },
+    {
+        id: '13',
+        name: 'Anna Dunn',
+        title: 'Enjoy being a member of Yankee Candle',
+        rating: 5,
+        comment: "Have always enjoyed Yankee Candles. Especially Sage & Citrus. Also Midsummers Night. Appreciate being a member of the Yankee Candle club. I enjoy all the special discounts as well as the free candle for my birthday. They are very thoughtful. Enjoy receiving your emails. Thank you again for the perks that I receive"
+    },
+    {
+        id: '14',
+        name: 'Jaida Urena',
+        title: 'Refreshing',
+        rating: 5,
+        comment: "Love this scent. I usually get the two wick tumblers as I think they pool better. This is one of my favorite candle scents."
+    },
+    {
+        id: '15',
+        name: 'Nix Guirre',
+        title: 'No way',
+        rating: 1,
+        comment: "This candle burned quick and the scent was not strong enough for even a small bathroom."
+    },
+    {
+        id: '16',
+        name: 'Kelli White',
+        title: 'Sweet and stron',
+        rating: 4,
+        comment: "Pleasant scent, but quite strong and very sweet. I ended up returning it, as I don't like scents that are too strong."
+    },
+    {
+        id: '17',
+        name: 'Kiandra Boucher',
+        title: 'Earthy, soothing, and cool.',
+        rating: 5,
+        comment: "Usually you don’t think of seaside and woods together but this fragrance works. Earthy, soothing, and cool."
+    },
+    {
+        id: '18',
+        name: 'Jonathan Mehl',
+        title: 'Red Apple Wreath candle',
+        rating: 5,
+        comment: "I love this candle. It smells fantastic. I will definitely buy it again."
+    },
+    {
+        id: '19',
+        name: 'Angela Weatherfly',
+        title: 'Love',
+        rating: 5,
+        comment: "Absolutely love this smell and it's amazing fragrance while burning."
+    },
+    {
+        id: '20',
+        name: 'Sarah Ganz',
+        title: 'Lovely apple and cinnamon',
+        rating: 4,
+        comment: "This was a blind purchase based on the scent notes. Just on the scent alone I will give it four stars. The apple and cinnamon notes come through strong on cold. I am waiting until December to burn it, and if the throw is strong, it will definitely get a full five stars. I believe this will pair well with other candles/wax melts with similar scent notes."
+    },
+    {
+        id: '21',
+        name: 'Jasmine Mangroo',
+        title: 'Much more lemony than I expected',
+        rating: 5,
+        comment: "Smells great. I didn't expect such a lemony aroma, but this candle is very pungent. I love it!"
+    },
+    {
+        id: '22',
+        name: 'Liliana Patracuolla',
+        title: 'Great scent-poor design-wax got mixed with black soot',
+        rating: 2,
+        comment: "Great scent-poor design. From the first burn this candle turned from yellow to black. I ended up getting a replacement candle in the tumbler style. I haven’t burned it yet but I’m hoping the straight sides of the tumbler will not allow soot to mix with the yellow wax."
+    },
+    {
+        id: '23',
+        name: 'Makayla Bennett',
+        title: 'My free birtday candle that I got for myself!!!!!!',
+        rating: 5,
+        comment: "I’ve been on a lemon kick and this is amazing and I recommend it!"
+    },
+    {
+        id: '24',
+        name: 'Brooke Haney',
+        title: 'Lovely and Relaxing!',
+        rating: 5,
+        comment: "I usually only burn florals or clean-type scents for very short periods of time in the Spring before it gets too hot here in Vegas. I love my fruits, but when I want to break up the monotony a bit, I break out my Lemon Lavender, Fluffy Towels, and Soft Blanket for awhile. I thought this one would be too strong and perfumey, but it's not--it's quite pleasant and relaxing. I love the label and the wax color on this one--it fits in well with Spring and Easter decor and adds a lovely fresh scent to your kitchen area as well."
+    },
+    {
+        id: '25',
+        name: 'Drew Steuckrath',
+        title: 'Cleaning Product!',
+        rating: 1,
+        comment: "This scent disappointed me since I love lavender and lemon, in general. This smells like a cheap cleaner. Even the Febreze scents are better than this one. Try again, Yankee Candle!"
+    },
+    {
+        id: '26',
+        name: 'Drew Hutton',
+        title: 'Great Candle!',
+        rating: 5,
+        comment: "Great candle! The beautiful smell does not effect my wife's allergies!"
+    },
+    {
+        id: '27',
+        name: 'Bella Anidjar',
+        title: 'Fresh Cut Roses',
+        rating: 5,
+        comment: "I love this fragrance. This candle smells like a bouquet of roses stems leaves and all with mostly rose. I pair mine with true rose."
+    },
+    {
+        id: '28',
+        name: 'Delicious rose scent, but not enough throw',
+        title: "J'essence Reynolds",
+        rating: 3,
+        comment: "This is by far the best rose scent I have come across in a candle, hands down. My career is in the sensory field which means I spend much of my day tasting and smelling, so I know a good scent when I come across one! But this candle has one critical defect that it shares with several other Yankee Candles: poor throw. I am coming across this more and more in Yankee Candles and it really makes me sad, because I think they do a great job with mixing their scents. I am disappointed because this is such a great rose fragrance, but I can't even get it to fill up my average-sized bathroom when I burn a 2-wick tumbler. I kept one tumbler and returned the other, the retail stores are always very good about taking back product if it doesn't meet all expectations, which I appreciate. So 5 stars for scent, 3 stars for overall because if you can't smell it when you burn it...well, then you can't enjoy it as much."
+    },
+    {
+        id: '29',
+        name: 'Chasity Douyon',
+        title: 'good',
+        rating: 5,
+        comment: "the rose smell is very good it smells so fresh and fills the room"
     }
 ]

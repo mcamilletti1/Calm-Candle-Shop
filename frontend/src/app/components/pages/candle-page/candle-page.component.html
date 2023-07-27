@@ -34,5 +34,29 @@
         </div>
 
         <button>Add To Cart</button>
+        <div class="reviews">
+            <div class="review" *ngFor="let review of reviews">
+                <div class="review-header">
+                    <div class="review-rating">
+                        <star-rating [stars]="review.rating" [size]="1.8" />  
+                    </div>
+                    <div class="review-title">
+                        <span>
+                            {{review.title}}
+                        </span>
+                    </div>
+                </div>
+                <div class="review-name">
+                    <span>
+                        {{review.name}}
+                    </span>
+                </div>
+                <div class="comment">
+                    <span>
+                        {{review.comment}}
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
