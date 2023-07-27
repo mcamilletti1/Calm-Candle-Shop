@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CandleService } from 'src/app/services/candle.service';
+import { CartService } from 'src/app/services/cart.service';
 import { Candle } from 'src/app/shared/models/Candle';
 import { Review } from 'src/app/shared/models/Review';
 
@@ -12,7 +13,8 @@ import { Review } from 'src/app/shared/models/Review';
 export class CandlePageComponent {
   candle!: Candle;
   reviews: Review[] = [];
-  constructor(private activatedRoute:ActivatedRoute, private candleService:CandleService) { 
+  constructor(private activatedRoute:ActivatedRoute, private candleService:CandleService,
+    private cartService:CartService, private router: Router) { 
     activatedRoute.params.subscribe((params) => {
       if(params.id)
       this.candle = candleService.getCandleById(params.id);
@@ -21,5 +23,10 @@ export class CandlePageComponent {
   }
 
   ngOnInit(): void {
+  }
+
+  addToCart(){
+    this.cartService.addToCart(this.candle);
+    this.router.navigateByUrl('/cart-page');
   }
 }
