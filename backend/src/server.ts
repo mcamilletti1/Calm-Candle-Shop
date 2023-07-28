@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { candles, reviews, tags } from "./data";
+import { candles, reviews, sample_users, tags } from "./data";
+import jwt from "jsonwebtoken";
 
 const app = express();
 app.use(express.json());
@@ -52,9 +53,26 @@ app.get("/api/reviews/:id", (req, res) => {
 })
 
 app.post("/api/users/login", (req, res) => {
-    const body = req.body;
-    const user = sample_users.find(user => user.email === body.email && user.password === body.password);
+    const {email, password} = req.body;
+    const user = sample_users.find((user) => user.email === email && user.password === password);
+
+    if(user){
+        res.send(generateTokenResponse(user));
+    } else{
+        res.status(400).send("Email or password is not valid");
+    }
 })
+
+const generateTokenResponse = (user:any) => {
+    const token = jwt.sign({
+       email: user.email, isAdmin:user.isAdmin  
+    },"SomeRandomText", {
+       expiresIn: "30d"
+    });
+
+    user.token = token;
+    return user;
+}
 
 
 const port = 5001;

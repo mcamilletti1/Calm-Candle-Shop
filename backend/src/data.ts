@@ -368,3 +368,19 @@ export const reviews: any[] = [
     }
 ]
 
+export const sample_users: any[] = [
+    {
+        name: "Chasity Douyon",
+        email: "chasity@gmail.com",
+        password: "12345",
+        address: "Toronto, On",
+        isAdmin: false
+    },
+    {
+        name: "Margaret Camilletti",
+        email: "margaret@gmail.com",
+        password: "54321",
+        address: "New York, NY",
+        isAdmin: true
+    },
+];
