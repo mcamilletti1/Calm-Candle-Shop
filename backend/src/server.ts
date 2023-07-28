@@ -3,6 +3,7 @@ import cors from "cors";
 import { candles, reviews, tags } from "./data";
 
 const app = express();
+app.use(express.json());
 app.use(cors({
     credentials:true,
     origin:["http://localhost:4200"]
@@ -48,6 +49,11 @@ app.get("/api/reviews/:id", (req, res) => {
     const id = req.params.id;
     const review_data = reviews.find(review =>review.id == id);
     res.send(review_data)
+})
+
+app.post("/api/users/login", (req, res) => {
+    const body = req.body;
+    const user = sample_users.find(user => user.email === body.email && user.password === body.password);
 })
 
 
