@@ -8,7 +8,6 @@ export const candles: any[] = [
         imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/tbt/OUPR73CMB5EM7IJNWUBXTKOMXY.jpeg',
         tags: ['autumn', 'fresh and clean'],
         scents: ['clove', 'lavender', 'basalm', 'clary sage', 'persimmon', 'rhubarb', 'lavender', 'geranium', 'eucalyptus woods', 'basalm'],
-        reviews: ['0', '1', '2'], 
         description: 'Spend the perfect autumn day strolling tree-lined streets with the scents of clove, lavender, balsam, and eucalyptus woods.'
     },
     {
@@ -20,7 +19,6 @@ export const candles: any[] = [
         imageUrl: 'https://voltavienna.com/wp-content/uploads/2022/11/Volta_Provider-Store_River-Candle_Hikari2-1024x1412.jpg',
         tags: ['autumn', 'woody'],
         scents: ['cardamom', 'black vanilla', 'smoked oud', 'bergamot', 'red cedar', 'birch bark', 'amber', 'suede', 'burnished leather', 'mahogany wood'],
-        reviews: ['3', '4', '5'],
         description: 'Feel the cool autumn breeze on a twilight walk along the river, with the scents of cardamom, black vanilla, and smoked oud.'
     },
     {
@@ -32,7 +30,6 @@ export const candles: any[] = [
         imageUrl: 'https://acultivatednest.com/wp-content/uploads/2016/09/diy-pumpkin-spice-soy-candle-lit.jpg',
         tags: ['autumn', 'sweet & spicy'],
         scents: ['cinnamon sugar', 'brown butter', 'spiced pumpkin', 'maple glaze', 'glazed icing', 'caramel', 'spiced croissant dough', 'pumpkin', 'vanilla icing', 'maple'],
-        reviews: ['6', '7', '8'],
         description: 'Enjoy the fragrance of this creamy, delicious treat, with cinnamon sugar, brown butter, spiced pumpkin, and maple glaze.'
     },
     {
@@ -44,7 +41,6 @@ export const candles: any[] = [
         imageUrl: 'https://i.etsystatic.com/31522027/r/il/1da297/4748293705/il_fullxfull.4748293705_3814.jpg',
         tags: ['autumn', 'fruity'],
         scents: ['mulled apple', 'pear', 'cider spices', 'orange', 'peppercorn', 'cinnamon sugar', 'apple brandy', 'vanilla bean', 'cedar'],
-        reviews: ['9', '10', '11'],
         description: 'Gather family and friends for a toast to autumn with the fragrance of sangria, scented with notes of mulled apple, fresh pear, and cider spices.'
     },
     {
@@ -56,7 +52,6 @@ export const candles: any[] = [
         imageUrl: 'https://post.healthline.com/wp-content/uploads/2020/03/burning-candle-matchbook-732x549-thumbnail-732x549.jpg',
         tags: ['summer', 'citrus'],
         scents: ['sage', 'lemon', 'lime', 'talc', 'lavender', 'geranium', 'patchouli'],
-        reviews: ['12', '13', '14'],
         description: 'This blend of earthy sage, luxurious talc, and lemon-lime creates a natural harmony. '
     },
     {
@@ -68,7 +63,6 @@ export const candles: any[] = [
         imageUrl: 'https://poetbotanicals.co.nz/cdn/shop/products/BOHOSTOCKPHOTO-1_d4315984-310e-44d4-8947-ea222e7d34a7_grande.jpg?v=1649241883',
         tags: ['summer', 'woody'],
         scents: ['citrus', 'floral', 'driftwood'],
-        reviews: ['15', '16', '17'],
         description: 'Surround yourself in cozy intrigue — driftwood mingles with brilliant citrus and floral notes for the perfect coastal escape.'
     },
     {
@@ -80,7 +74,6 @@ export const candles: any[] = [
         imageUrl: 'https://www.lifenreflection.com/wp-content/uploads/2017/06/INSTA-_apple-candles-11.jpg',
         tags: ['winter', 'fruity'],
         scents: ['cinnamon leaf', 'golden apples', 'clove', 'apple peel', 'cracked walnuts', 'brown sugar', 'vanilla', 'amber', 'melted butter', 'maple syrup'],
-        reviews: ['18', '19', '20'],
         description: 'A happy holiday homecoming with the festive aroma of sweet apples, cinnamon, walnuts, and maple. '
     },
     {
@@ -92,7 +85,6 @@ export const candles: any[] = [
         imageUrl: 'https://dartez.in/wp-content/uploads/2021/09/DCE54-3.jpeg',
         tags: ['spring', 'citrus'],
         scents: ['lemon zest', 'tart lemon', 'vanilla', 'sugar'],
-        reviews: ['21', '22', '23'],
         description: 'So fresh and full of zest, like a bright day exploring hillside villages with sweet unexpected turns.'
     },
     {
@@ -104,7 +96,6 @@ export const candles: any[] = [
         imageUrl: 'https://craftsbyamanda.com/wp-content/uploads/2021/04/DIY-lavender-candles-V1-1100x1650.jpg',
         tags: ['spring', 'citrus'],
         scents: ['tangerine', 'lemon', 'lavender', 'orange', 'vanilla'],
-        reviews: ['24', '25', '26'],
         description: 'Clean and inviting...a powdery fresh blend of tangy lemon citrus and sweet lavender flowers. '
     },
     {
@@ -116,7 +107,6 @@ export const candles: any[] = [
         imageUrl: 'https://www.thegrowingcandle.com/cdn/shop/products/Adelyn.jpg?v=1686949525',
         tags: ['spring', 'summer', 'floral'],
         scents: ['rose', 'apple', 'citrus', 'geranium', 'musk'],
-        reviews: ['27', '28', '29'],
         description: 'An intoxicating English garden of fragrant heirloom roses. '
     }
 ]
@@ -137,6 +127,7 @@ export const tags: any[] = [
 export const reviews: any[] = [
     {
         id: '0',
+        candleId: candles[0]._id,
         name: 'Mimi Marquez',
         title: 'Wonderful',
         rating: 5,
@@ -144,6 +135,7 @@ export const reviews: any[] = [
     },
     {
         id: '1',
+        candleId: candles[0]._id,
         name: 'Mike Alexander',
         title: 'Amazing',
         rating: 5,
@@ -151,6 +143,7 @@ export const reviews: any[] = [
     },
     {
         id: '2',
+        candleId: candles[0]._id,
         name: 'Vannah Bloom',
         title: 'Smells like the holidays',
         rating: 5,
@@ -158,6 +151,7 @@ export const reviews: any[] = [
     },
     {
         id: '3',
+        candleId: candles[1]._id,
         name: 'Mimi Marquez',
         title: 'Great',
         rating: 5,
@@ -165,6 +159,7 @@ export const reviews: any[] = [
     },
     {
         id: '4',
+        candleId: candles[1]._id,
         name: 'Nafisa Mahmood',
         title: 'Great candle!',
         rating: 4,
@@ -172,6 +167,7 @@ export const reviews: any[] = [
     },
     {
         id: '5',
+        candleId: candles[1]._id,
         name: 'Chrissy Taylor',
         title: 'Beautiful',
         rating: 5,
@@ -179,6 +175,7 @@ export const reviews: any[] = [
     },
     {
         id: '6',
+        candleId: candles[2]._id,
         name: 'Liz Martins',
         title: 'Wonderful',
         rating: 5,
@@ -186,6 +183,7 @@ export const reviews: any[] = [
     },
     {
         id: '7',
+        candleId: candles[2]._id,
         name: 'Ashutosh Singh',
         title: 'cozy and comforting',
         rating: 5,
@@ -193,6 +191,7 @@ export const reviews: any[] = [
     },
     {
         id: '8',
+        candleId: candles[2]._id,
         name: 'Ryan Byrne',
         title: 'Amazing fall scent!',
         rating: 5,
@@ -200,6 +199,7 @@ export const reviews: any[] = [
     },
     {
         id: '9',
+        candleId: candles[3]._id,
         name: 'Julian Franco',
         title: 'smells AMAZING!',
         rating: 5,
@@ -207,6 +207,7 @@ export const reviews: any[] = [
     },
     {
         id: '10',
+        candleId: candles[3]._id,
         name: 'Sydnee LaBuda',
         title: 'Nice scent and large candle',
         rating: 5,
@@ -214,6 +215,7 @@ export const reviews: any[] = [
     },
     {
         id: '11',
+        candleId: candles[3]._id,
         name: 'Kara Goldin',
         title: 'Smells amazing',
         rating: 5,
@@ -221,6 +223,7 @@ export const reviews: any[] = [
     },
     {
         id: '12',
+        candleId: candles[4]._id,
         name: 'Caitlyn Woodham',
         title: 'Its a perfect blend of scents',
         rating: 5,
@@ -228,6 +231,7 @@ export const reviews: any[] = [
     },
     {
         id: '13',
+        candleId: candles[4]._id,
         name: 'Anna Dunn',
         title: 'Enjoy being a member of Yankee Candle',
         rating: 5,
@@ -235,6 +239,7 @@ export const reviews: any[] = [
     },
     {
         id: '14',
+        candleId: candles[4]._id,
         name: 'Jaida Urena',
         title: 'Refreshing',
         rating: 5,
@@ -242,6 +247,7 @@ export const reviews: any[] = [
     },
     {
         id: '15',
+        candleId: candles[5]._id,
         name: 'Nix Guirre',
         title: 'No way',
         rating: 1,
@@ -249,6 +255,7 @@ export const reviews: any[] = [
     },
     {
         id: '16',
+        candleId: candles[5]._id,
         name: 'Kelli White',
         title: 'Sweet and stron',
         rating: 4,
@@ -256,6 +263,7 @@ export const reviews: any[] = [
     },
     {
         id: '17',
+        candleId: candles[5]._id,
         name: 'Kiandra Boucher',
         title: 'Earthy, soothing, and cool.',
         rating: 5,
@@ -263,6 +271,7 @@ export const reviews: any[] = [
     },
     {
         id: '18',
+        candleId: candles[6]._id,
         name: 'Jonathan Mehl',
         title: 'Red Apple Wreath candle',
         rating: 5,
@@ -270,6 +279,7 @@ export const reviews: any[] = [
     },
     {
         id: '19',
+        candleId: candles[6]._id,
         name: 'Angela Weatherfly',
         title: 'Love',
         rating: 5,
@@ -277,6 +287,7 @@ export const reviews: any[] = [
     },
     {
         id: '20',
+        candleId: candles[6]._id,
         name: 'Sarah Ganz',
         title: 'Lovely apple and cinnamon',
         rating: 4,
@@ -284,6 +295,7 @@ export const reviews: any[] = [
     },
     {
         id: '21',
+        candleId: candles[7]._id,
         name: 'Jasmine Mangroo',
         title: 'Much more lemony than I expected',
         rating: 5,
@@ -291,6 +303,7 @@ export const reviews: any[] = [
     },
     {
         id: '22',
+        candleId: candles[7]._id,
         name: 'Liliana Patracuolla',
         title: 'Great scent-poor design-wax got mixed with black soot',
         rating: 2,
@@ -298,6 +311,7 @@ export const reviews: any[] = [
     },
     {
         id: '23',
+        candleId: candles[7]._id,
         name: 'Makayla Bennett',
         title: 'My free birtday candle that I got for myself!!!!!!',
         rating: 5,
@@ -305,6 +319,7 @@ export const reviews: any[] = [
     },
     {
         id: '24',
+        candleId: candles[8]._id,
         name: 'Brooke Haney',
         title: 'Lovely and Relaxing!',
         rating: 5,
@@ -312,6 +327,7 @@ export const reviews: any[] = [
     },
     {
         id: '25',
+        candleId: candles[8]._id,
         name: 'Drew Steuckrath',
         title: 'Cleaning Product!',
         rating: 1,
@@ -319,6 +335,7 @@ export const reviews: any[] = [
     },
     {
         id: '26',
+        candleId: candles[8]._id,
         name: 'Drew Hutton',
         title: 'Great Candle!',
         rating: 5,
@@ -326,6 +343,7 @@ export const reviews: any[] = [
     },
     {
         id: '27',
+        candleId: candles[9]._id,
         name: 'Bella Anidjar',
         title: 'Fresh Cut Roses',
         rating: 5,
@@ -333,6 +351,7 @@ export const reviews: any[] = [
     },
     {
         id: '28',
+        candleId: candles[9]._id,
         name: 'Delicious rose scent, but not enough throw',
         title: "J'essence Reynolds",
         rating: 3,
@@ -340,6 +359,7 @@ export const reviews: any[] = [
     },
     {
         id: '29',
+        candleId: candles[9]._id,
         name: 'Chasity Douyon',
         title: 'good',
         rating: 5,

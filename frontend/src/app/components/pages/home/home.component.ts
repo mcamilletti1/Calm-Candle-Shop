@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CandleService } from 'src/app/services/candle.service';
 import { Candle } from 'src/app/shared/models/Candle';
 
@@ -11,13 +12,18 @@ import { Candle } from 'src/app/shared/models/Candle';
 export class HomeComponent implements OnInit {
   candles: Candle[] =[];
   constructor(private candleService:CandleService, activatedRoute: ActivatedRoute) {
+    let candlesObservable:Observable<Candle[]>;
     activatedRoute.params.subscribe((params) => {
       if(params.searchTerm)
-      this.candles = this.candleService.getAllCandlesBySearchTerm(params.searchTerm);
+        candlesObservable = this.candleService.getAllCandlesBySearchTerm(params.searchTerm);
       else if(params.tag)
-      this.candles = this.candleService.getAllCandlesByTag(params.tag);
+        candlesObservable = this.candleService.getAllCandlesByTag(params.tag);
       else
-      this.candles = candleService.getAll();
+        candlesObservable = candleService.getAll();
+
+        candlesObservable.subscribe((serverCandles) => {
+          this.candles = serverCandles;
+        })
     })
    }
 
