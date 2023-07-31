@@ -43,7 +43,7 @@ export class UserService {
    }
 
    private setUserToLocalStorage(user:User){
-    localStorage.setItem(USER_KEY, JSON.stringify(user))
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
    }
 
    private getUserFromLocalStorage():User{
