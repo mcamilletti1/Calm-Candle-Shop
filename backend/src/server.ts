@@ -1,8 +1,14 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
 import candleRouter from './routers/candle.router';
 import userRouter from './routers/user.router';
 import reviewRouter from './routers/review.router';
+import { dbConnect } from './configs/database.config';
+dbConnect();
+
 const app = express();
 app.use(express.json());
 app.use(cors({
