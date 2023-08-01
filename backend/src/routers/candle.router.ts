@@ -1,10 +1,10 @@
 import {Router} from 'express';
 import { candles, tags } from '../data';
-import asynceHandler from 'express-async-handler';
+import asyncHandler from 'express-async-handler';
 import { CandleModel } from '../models/candle.model';
 const router = Router();
 
-router.get("/seed", asynceHandler(
+router.get("/seed", asyncHandler(
     async (req, res) => {
     const candlesCount = await CandleModel.countDocuments();
     if(candlesCount > 0){

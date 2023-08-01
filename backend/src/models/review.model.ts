@@ -1,7 +1,6 @@
-import { Schema, Types } from 'mongoose';
+import { Schema, Types, model, Document } from 'mongoose';
 
-export interface Review {
-    id: string;
+export interface Review extends Document {
     candleId: Types.ObjectId;
     title: string;
     name: string;
@@ -9,7 +8,7 @@ export interface Review {
     comment: string;
 }
 
-export const ReviewSchema = new Schema<Review>(
+const ReviewSchema = new Schema<Review>(
     {
        candleId: {type: Schema.Types.ObjectId, ref: 'Candle', required: true},
        title: {type: String, required: true},
@@ -18,3 +17,5 @@ export const ReviewSchema = new Schema<Review>(
        comment: {type: String, required: true} 
     }
 )
+
+export const ReviewModel = model<Review>('review', ReviewSchema);

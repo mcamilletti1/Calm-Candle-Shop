@@ -18,7 +18,7 @@ app.use(cors({
 
 app.use("/api/candles", candleRouter);
 app.use("/api/users", userRouter);
-app.use("api/reviews", reviewRouter);
+app.use("/api/reviews", reviewRouter);
 
 
 

@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Document } from 'mongoose'
 import { Review } from './review.model';
 
-export interface Candle{
+export interface Candle extends Document {
     id:string;
     name:string;
     price:number;
@@ -14,7 +14,7 @@ export interface Candle{
     description: string;
 }
 
-export const CandleSchema = new Schema<Candle>(
+const CandleSchema = new Schema<Candle>(
     {
         name: {type: String, required:true},
         price: {type: Number, required: true},
@@ -23,6 +23,7 @@ export const CandleSchema = new Schema<Candle>(
         stars: {type: Number, required:true},
         imageUrl: {type:String, required:true},
         scents: {type: [String], required:true},
+        reviews: [{ type: Schema.Types.ObjectId, ref: 'Review'}],
         description: {type: String, required:true}
     }, 
     {
