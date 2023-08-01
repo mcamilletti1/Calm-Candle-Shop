@@ -16,30 +16,57 @@ router.get("/seed", asyncHandler(
 }
 ))
 
-router.get("/", (req, res) => {
+router.get("/", asyncHandler( async (req, res) => {
+    const candles = await CandleModel.find();
     res.send(candles);
-})
+}))
 
-router.get("/search/:searchTerm", (req, res) => {
-    const searchTerm = req.params.searchTerm;
-    const candles_data = candles.filter(candle => candle.name.toLowerCase().includes(searchTerm.toLowerCase()));
+router.get("/search/:searchTerm", asyncHandler( async (req, res) => {
+    const searchRegex = new RegExp(req.params.searchTerm, 'i');
+    const candles_data = await CandleModel.find({name: {$regex:searchRegex}})
     res.send(candles_data);
-})
+}))
 
-router.get("/tags", (req, res) => {
+router.get("/tags", asyncHandler( 
+    async (req, res) => {
+    const tags = await CandleModel.aggregate([
+       {
+        $unwind:'$tags'
+       },
+       {
+        $group:{
+            _id: '$tags',
+            count: {$sum: 1}
+        }
+       },
+       {
+        $project:{
+            _id: 0,
+            name: '$_id',
+            count: '$count'
+        }
+       }
+    ]).sort({count: -1})
+
+    const all = {
+        name : 'All',
+        count: await CandleModel.countDocuments()
+    }
+
+    tags.unshift(all);
     res.send(tags);
-})
+}))
 
-router.get("/tag/:tagName", (req, res) => {
-    const tagName = req.params.tagName;
-    const candles_data = candles.filter(candle => candle.tags?.includes(tagName));
+router.get("/tag/:tagName", asyncHandler(
+    async (req, res) => {
+    const candles_data = await CandleModel.find({tags:req.params.tagName})
     res.send(candles_data);
-})
+}))
 
-router.get("/:candleId", (req, res) => {
-   const candleId =  req.params.candleId;
-   const candle_data = candles.find(candle => candle.id == candleId);
-   res.send(candle_data);
-})
+router.get("/:candleId", asyncHandler(
+    async (req, res) => {
+    const candle = await CandleModel.findById(req.params.candleId);
+    res.send(candle);
+}))
 
 export default router;
