@@ -25,21 +25,23 @@ router.get("/seed", asyncHandler(
     }
 }));
 
-router.get("/api/reviews", (req, res) => {
-    res.send(reviews);
-})
+router.get("/api/reviews", asyncHandler (
+    async (req, res) => {
+        const allReviews = await ReviewModel.find();
+        res.send(allReviews);
+}));
 
-router.get("/api/reviews/:candleId", (req, res) => {
+router.get("/api/reviews/:candleId", asyncHandler( async (req, res) => {
     const candleId = req.params.candleId;
-    const review_data = reviews.filter(review =>review.candleId == candleId);
+    const review_data = await ReviewModel.find({ candleId: candleId });
     res.send(review_data);
-})
+}))
 
-router.get("/api/reviews/:id", (req, res) => {
+router.get("/api/reviews/:id", asyncHandler( async (req, res) => {
     const id = req.params.id;
-    const review_data = reviews.find(review =>review.id == id);
+    const review_data = await ReviewModel.findById(id);
     res.send(review_data)
-})
+}))
 
 export default router
 

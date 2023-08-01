@@ -39,11 +39,11 @@ resetLinkText="Go home">
         </div>
 
         <button (click)="addToCart()">Add To Cart</button>
-        <div class="reviews">
+        <div class="reviews" *ngIf="reviews && reviews.length > 0">
             <div class="review" *ngFor="let review of reviews">
                 <div class="review-header">
                     <div class="review-rating">
-                        <star-rating [stars]="review.rating" [size]="1.8" />  
+                        <star-rating [stars]="review.rating" [size]="1.8"></star-rating> 
                     </div>
                     <div class="review-title">
                         <span>

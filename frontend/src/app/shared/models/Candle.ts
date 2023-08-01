@@ -1,7 +1,7 @@
 
 
 export class Candle{
-    id!:string;
+    id!: string;
     name!:string;
     price!:number;
     favorite!: boolean;
