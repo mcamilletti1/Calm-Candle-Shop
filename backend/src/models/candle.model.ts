@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose'
+import { Schema, model } from 'mongoose'
 import { Review } from './review.model';
 
 export interface Candle{
@@ -35,3 +35,5 @@ export const CandleSchema = new Schema<Candle>(
         timestamps:true
     }
 )
+
+export const CandleModel = model<Candle>('candle', CandleSchema);

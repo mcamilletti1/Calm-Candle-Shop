@@ -1,7 +1,20 @@
 import {Router} from 'express';
 import { candles, tags } from '../data';
-
+import asynceHandler from 'express-async-handler';
+import { CandleModel } from '../models/candle.model';
 const router = Router();
+
+router.get("/seed", asynceHandler(
+    async (req, res) => {
+    const candlesCount = await CandleModel.countDocuments();
+    if(candlesCount > 0){
+        res.send("Seed is already done!");
+        return;
+    }
+    await CandleModel.create(candles);
+    res.send("Seed Is Done!");
+}
+))
 
 router.get("/", (req, res) => {
     res.send(candles);
