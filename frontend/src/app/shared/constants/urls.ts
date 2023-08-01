@@ -7,4 +7,5 @@ export const CANDLES_BY_SEARCH_URL = CANDLES_URL + '/search/';
 export const CANDLES_BY_TAG_URL = CANDLES_URL + '/tag/';
 export const CANDLE_BY_ID_URL = CANDLES_URL + '/';
 
-export const USER_LOGIN_URL = BASE_URL + '/api/users';
+export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
+export const USER_REGISTER_URL = BASE_URL + '/api/users/register';

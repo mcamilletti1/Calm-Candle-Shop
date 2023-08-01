@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { IUserLogin } from '../shared/interfaces/iUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL } from '../shared/constants/urls';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { User } from '../shared/models/User';
 import { ToastrService } from 'ngx-toastr';
+import { IUserRegister } from '../shared/interfaces/iUserRegister';
 
 
 const USER_KEY = 'User';
@@ -36,7 +37,24 @@ export class UserService {
     );
    }
 
-   register
+   register(userRegister:IUserRegister): Observable<User>{
+    return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(
+            `Welcome to the Calm Candle shop, ${user.name}`,
+            `Account successfully registered`
+          )
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error,
+            `Account registration failed.`)
+        }
+      })
+    )
+   }
 
    logout(){
     this.userSubject.next(new User());
