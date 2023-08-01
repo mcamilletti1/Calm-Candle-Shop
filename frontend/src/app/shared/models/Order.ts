@@ -1,7 +1,7 @@
 import { CartItem } from './CartItem'
 
 export class Order {
-    id!: string;
+    id!: number;
     items!: CartItem[];
     totalPrice!: number;
     name!: string;
