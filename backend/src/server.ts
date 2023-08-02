@@ -6,6 +6,7 @@ import cors from "cors";
 import candleRouter from './routers/candle.router';
 import userRouter from './routers/user.router';
 import reviewRouter from './routers/review.router';
+import orderRouter from './routers/order.router';
 import { dbConnect } from './configs/database.config';
 dbConnect();
 
@@ -19,6 +20,7 @@ app.use(cors({
 app.use("/api/candles", candleRouter);
 app.use("/api/users", userRouter);
 app.use("/api/reviews", reviewRouter);
+app.use("/api/orders", orderRouter);
 
 
 

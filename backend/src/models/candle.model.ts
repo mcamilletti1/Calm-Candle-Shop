@@ -14,7 +14,7 @@ export interface Candle extends Document {
     description: string;
 }
 
-const CandleSchema = new Schema<Candle>(
+export const CandleSchema = new Schema<Candle>(
     {
         name: {type: String, required:true},
         price: {type: Number, required: true},
