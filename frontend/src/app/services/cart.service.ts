@@ -37,6 +37,7 @@ export class CartService {
 
   clearCart(){
     this.cart = new Cart();
+    this.setCartToLocalStorage();
   }
 
   getCartObservable():Observable<Cart>{
@@ -58,6 +59,6 @@ export class CartService {
 
   private getCartFromLocalStorage():Cart{
     const cartJson = localStorage.getItem('Cart');
-    return cartJson? JSON.parse(cartJson): new Cart();
+    return cartJson ? JSON.parse(cartJson): new Cart();
   }
 }

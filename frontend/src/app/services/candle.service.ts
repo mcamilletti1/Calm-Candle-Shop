@@ -3,6 +3,7 @@ import { Candle } from '../shared/models/Candle';
 import { Tag } from '../shared/models/Tag';
 import { Review } from '../shared/models/Review';
 import { Observable } from 'rxjs';
+import { candles, tags } from 'src/data';
 import { HttpClient } from '@angular/common/http';
 import { BASE_URL, CANDLES_BY_SEARCH_URL, CANDLES_BY_TAG_URL, CANDLES_TAGS_URL, CANDLES_URL, CANDLE_BY_ID_URL, REVIEWS_URL } from '../shared/constants/urls';
 
@@ -32,7 +33,7 @@ export class CandleService {
   }
 
   getCandleById(candleId:string):Observable<Candle>{
-    return this.http.get<Candle>(CANDLES_URL + '/' + candleId);
+    return this.http.get<Candle>(CANDLE_BY_ID_URL + candleId);
   }
 
   getReviews(): Observable<Review[]> {
