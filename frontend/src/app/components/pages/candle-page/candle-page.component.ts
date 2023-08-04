@@ -13,7 +13,7 @@ import { Review } from 'src/app/shared/models/Review';
 export class CandlePageComponent implements OnInit{
   candle!: Candle;
   reviews: Review[] = [];
-  constructor(private activatedRoute:ActivatedRoute, private candleService:CandleService,
+  constructor(activatedRoute:ActivatedRoute, candleService:CandleService,
     private cartService:CartService, private router: Router) { 
     activatedRoute.params.subscribe((params) => {
       if(params.id)

@@ -5,7 +5,7 @@ import { Review } from '../shared/models/Review';
 import { Observable } from 'rxjs';
 import { candles, tags } from 'src/data';
 import { HttpClient } from '@angular/common/http';
-import { BASE_URL, CANDLES_BY_SEARCH_URL, CANDLES_BY_TAG_URL, CANDLES_TAGS_URL, CANDLES_URL, CANDLE_BY_ID_URL, REVIEWS_URL } from '../shared/constants/urls';
+import { CANDLES_BY_SEARCH_URL, CANDLES_BY_TAG_URL, CANDLES_TAGS_URL, CANDLES_URL, CANDLE_BY_ID_URL, REVIEWS_URL } from '../shared/constants/urls';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class CandleService {
   }
 
   getAllCandlesByTag(tag:string):Observable<Candle[]>{
-    return tag == "All"?
+    return tag === "All" ?
     this.getAll():
     this.http.get<Candle[]>(CANDLES_BY_TAG_URL + tag);
   }

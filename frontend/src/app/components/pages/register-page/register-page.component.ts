@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { IUserRegister } from 'src/app/shared/interfaces/iUserRegister';
@@ -47,7 +47,7 @@ export class RegisterPageComponent implements OnInit {
     this.isSubmitted = true;
     if(this.registerForm.invalid) return;
 
-    const fv= this.registerForm.value;
+    const fv = this.registerForm.value;
     const user : IUserRegister = {
       name: fv.name,
       email: fv.email,
