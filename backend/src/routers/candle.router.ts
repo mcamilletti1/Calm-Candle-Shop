@@ -2,6 +2,7 @@ import {Router} from 'express';
 import { candles, tags } from '../data';
 import asyncHandler from 'express-async-handler';
 import { CandleModel } from '../models/candle.model';
+import { ReviewModel } from '../models/review.model';
 const router = Router();
 
 router.get("/seed", asyncHandler(
@@ -17,7 +18,13 @@ router.get("/seed", asyncHandler(
 ))
 
 router.get("/", asyncHandler( async (req, res) => {
-    const candles = await CandleModel.find();
+    const candles = await CandleModel.find().populate('reviews');
+    for (const candle of candles) {
+        const reviewsCount = candle.reviews.length;
+        const totalStars = candle.reviews.reduce((total, review) => total + review.rating, 0);
+        candle.stars = reviewsCount > 0 ? totalStars / reviewsCount : 0;
+        await candle.save();
+    }
     res.send(candles);
 }))
 

@@ -2,8 +2,10 @@ import { Router } from 'express';
 import { reviews } from '../data';
 import asyncHandler from 'express-async-handler';
 import { ReviewModel } from '../models/review.model';
+import express from 'express';
 
-const router = Router();
+
+const router = express.Router();
 
 
 router.get("/seed", asyncHandler(
@@ -42,6 +44,35 @@ router.get("/:id", asyncHandler( async (req, res) => {
     const review_data = await ReviewModel.findById(id);
     res.send(review_data)
 }))
+
+router.post('/', async (req, res) => {
+    try {
+        const newReview = await ReviewModel.create(req.body);
+        res.status(201).json(newReview);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to create review.' });
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedReview = await ReviewModel.findByIdAndDelete(req.params.id);
+        res.json(deletedReview);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete review.' });
+    }
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedReview = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(updatedReview);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update review.' });
+    }
+});
+
+
 
 export default router
 

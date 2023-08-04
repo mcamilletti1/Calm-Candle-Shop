@@ -18,4 +18,4 @@ const ReviewSchema = new Schema<Review>(
     }
 )
 
-export const ReviewModel = model<Review>('review', ReviewSchema);
+export const ReviewModel = model<Review>('Review', ReviewSchema);

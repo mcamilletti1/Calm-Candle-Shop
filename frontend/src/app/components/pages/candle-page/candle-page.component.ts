@@ -4,6 +4,7 @@ import { CandleService } from 'src/app/services/candle.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Candle } from 'src/app/shared/models/Candle';
 import { Review } from 'src/app/shared/models/Review';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-candle-page',
@@ -13,22 +14,37 @@ import { Review } from 'src/app/shared/models/Review';
 export class CandlePageComponent implements OnInit{
   candle!: Candle;
   reviews: Review[] = [];
-  constructor(activatedRoute:ActivatedRoute, private candleService:CandleService,
-    private cartService:CartService, private router: Router) { 
-    activatedRoute.params.subscribe((params) => {
-      if(params.id)
-      candleService.getCandleById(params.id).subscribe(serverCandle => {
-        this.candle = serverCandle;
-      });
-      candleService.getReviewsByCandle(params.id).subscribe(serverReviews => this.reviews = serverReviews);
-    })
-  }
+  constructor(private activatedRoute:ActivatedRoute, private candleService:CandleService,
+    private cartService:CartService, private router: Router) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.pipe(
+      switchMap((params) => {
+        if (params.id) {
+          return this.candleService.getCandleById(params.id);
+        }
+        throw new Error('Candle ID not provided in URL params.');
+      })
+    ).subscribe(
+      (serverCandle) => {
+        this.candle = serverCandle;
+        this.candleService.getReviewsByCandle(this.candle.id).subscribe(
+          (serverReviews) => {
+            this.reviews = serverReviews;
+          },
+          (error) => {
+            console.error('Error fetching reviews:', error);
+          }
+        );
+      },
+  (error) => {
+    console.error('Error fetching candle:', error);
   }
+);
+}
 
-  addToCart(){
-    this.cartService.addToCart(this.candle);
-    this.router.navigateByUrl('/cart-page');
-  }
+addToCart() {
+  this.cartService.addToCart(this.candle);
+  this.router.navigateByUrl('/cart-page');
+}
 }
