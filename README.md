@@ -27,7 +27,7 @@ MongoDB Atlas: To host our database in the cloud.
 Getting Started
 To run the Calm Candle Shop locally on your machine, follow these steps:
 
-Clone the repository: git clone https://github.com/your-username/calm-candle-shop.git
+Clone the repository: git clone https://github.com/mcamilletti1/Calm-Candle-Shop.git
 Navigate to the project directory: cd calm-candle-shop
 Install the dependencies: npm install
 Set up environment variables for Stripe and PayPal credentials.
@@ -41,5 +41,6 @@ If you have any questions, feedback, or just want to say hello, feel free to rea
 
 Website: https://margaretcamilletti.com
 LinkedIn: https://www.linkedin.com/in/margaretcamilletti
+
 We hope you enjoy your experience at the Calm Candle Shop and find the perfect candles to bring peace and tranquility to your life. Happy shopping! 🕯️
 
