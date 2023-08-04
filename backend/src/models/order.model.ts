@@ -18,10 +18,10 @@ export const OrderItemSchema = new Schema<OrderItem>(
     }
 );
 
-export interface Order{
-    id:number;
+export interface Order {
+    id: number;
     items: OrderItem[];
-    totalPrice:number;
+    totalPrice: number;
     name: string;
     address: string;
     paymentId: string;

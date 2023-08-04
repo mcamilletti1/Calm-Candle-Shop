@@ -1,19 +1,19 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/shared/models/Order';
 
-
 declare var paypal: any;
+
 
 @Component({
   selector: 'paypal-button',
   templateUrl: './paypal-button.component.html',
   styleUrls: ['./paypal-button.component.css']
 })
-export class PaypalButtonComponent implements OnInit {
+export class PaypalButtonComponent implements AfterViewInit {
   @Input()
   order!:Order;
   
@@ -25,8 +25,8 @@ export class PaypalButtonComponent implements OnInit {
               private router:Router,
               private toastrService: ToastrService) { }
 
-  ngOnInit(): void {
-    const self = this;
+  ngAfterViewInit(): void {
+    this.loadPayPalScript().then(() => {
     paypal
     .Buttons({
       createOrder: (data: any, actions: any) => {
@@ -34,7 +34,7 @@ export class PaypalButtonComponent implements OnInit {
           purchase_units: [
             {
               amount: {
-                value: self.order.totalPrice,
+                value: this.order.totalPrice,
               },
             },
           ],
@@ -56,9 +56,8 @@ export class PaypalButtonComponent implements OnInit {
             },
             error: (error) => {
               this.toastrService.error('Payment Save Failed', 'Error');
-            }
-          }
-        );
+            },
+          });
       },
 
       onError: (err: any) => {
@@ -68,7 +67,15 @@ export class PaypalButtonComponent implements OnInit {
     })
     .render(this.paypalElement.nativeElement);
 
-  }
+  });
+}
 
-
+private loadPayPalScript(): Promise<void> {
+  return new Promise((resolve) => {
+    const scriptElement = document.createElement('script');
+    scriptElement.src = 'https://www.paypal.com/sdk/js?client-id=AR_6w4HfaWgJs7o__9JvavcEMrH87wwQV7brnQwyDRPEUE_COLoGe4bsyjMxKeF6F7WS-l1HuHoNQdO0';
+    scriptElement.onload = resolve;
+    document.body.appendChild(scriptElement);
+  });
+}
 }

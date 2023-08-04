@@ -41,7 +41,7 @@ export class CandleService {
   }
 
   getReviewsByCandle(candleId:string): Observable<Review[]> {
-    return this.http.get<Review[]>(`${REVIEWS_URL}/${candleId}`);
+    return this.http.get<Review[]>(REVIEWS_URL + "/candle/" + candleId);
   }
 
   getReviewById(reviewId: string): Observable<Review> {

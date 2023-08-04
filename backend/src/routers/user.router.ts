@@ -5,6 +5,8 @@ import asyncHandler from 'express-async-handler';
 import { User, UserModel } from '../models/user.model';
 import { HTTP_BAD_REQUEST } from '../constants/http_status';
 import bcrypt from 'bcryptjs';
+
+
 const router = Router();
 
 router.get("/seed", asyncHandler(
@@ -48,6 +50,7 @@ router.post('/register', asyncHandler(
     const encryptedPassword = await bcrypt.hash(password, 10);
 
     const newUser:User = {
+      id: '',
       name,
       email: email.toLowerCase(),
       password: encryptedPassword,
@@ -62,12 +65,13 @@ router.post('/register', asyncHandler(
 
   const generateTokenReponse = (user : User) => {
     const token = jwt.sign({
-      email:user.email, isAdmin: user.isAdmin
-    },process.env.JWT_SECRET!,{
+      id: user.id, email:user.email, isAdmin: user.isAdmin
+    },`${process.env.JWT_SECRET!}`,{
       expiresIn:"30d"
     });
   
     return {
+      id: user.id,
       email: user.email,
       name: user.name,
       address: user.address,

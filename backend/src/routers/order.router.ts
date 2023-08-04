@@ -3,9 +3,10 @@ import asyncHandler from 'express-async-handler';
 import { OrderModel } from '../models/order.model';
 import { OrderStatus } from '../constants/order_status';
 import { HTTP_BAD_REQUEST } from '../constants/http_status';
-
+import auth from '../middlewares/auth.mid';
 
 const router = Router();
+router.use(auth);
 
 
 router.post('/create', 
@@ -46,7 +47,7 @@ router.post('/pay', asyncHandler( async (req:any, res) => {
     order.status = OrderStatus.PAYED;
     await order.save()
 
-    res.send(order.id);
+    res.send(order._id);
 }))
 
 router.get('/track/:id', asyncHandler( async (req, res) => {
