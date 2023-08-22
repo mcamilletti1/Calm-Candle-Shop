@@ -1,6 +1,6 @@
+import { environment } from 'src/environments/environment'
 
-
-export const BASE_URL = 'http://localhost:5001';
+export const BASE_URL = environment.production? '' : 'http://localhost:5001';
 
 export const CANDLES_URL = BASE_URL + '/api/candles';
 export const REVIEWS_URL = BASE_URL + '/api/reviews'
