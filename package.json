@@ -8,8 +8,5 @@
     "start": "cd backend/built && node server.js",
     "prebuild": "cd backend && npm run build",
     "build": "cd frontend && npm run build"
-  },
-  "dependencies": {
-    "@angular/cli": "^16.2.0"
   }
 }
