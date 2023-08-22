@@ -11,40 +11,47 @@ import { switchMap } from 'rxjs/operators';
   templateUrl: './candle-page.component.html',
   styleUrls: ['./candle-page.component.css']
 })
-export class CandlePageComponent implements OnInit{
+export class CandlePageComponent implements OnInit {
   candle!: Candle;
   reviews: Review[] = [];
-  constructor(private activatedRoute:ActivatedRoute, private candleService:CandleService,
-    private cartService:CartService, private router: Router) { }
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private candleService: CandleService,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.pipe(
-      switchMap((params) => {
-        if (params.id) {
-          return this.candleService.getCandleById(params.id);
-        }
-        throw new Error('Candle ID not provided in URL params.');
-      })
-    ).subscribe(
-      (serverCandle) => {
-        this.candle = serverCandle;
-        this.candleService.getReviewsByCandle(this.candle.id).subscribe(
-          (serverReviews) => {
-            this.reviews = serverReviews;
-          },
-          (error) => {
-            console.error('Error fetching reviews:', error);
+    this.activatedRoute.params
+      .pipe(
+        switchMap((params) => {
+          if (params.id) {
+            return this.candleService.getCandleById(params.id);
           }
-        );
-      },
-  (error) => {
-    console.error('Error fetching candle:', error);
+          throw new Error('Candle ID not provided in URL params.');
+        })
+      )
+      .subscribe(
+        (serverCandle) => {
+          this.candle = serverCandle;
+          this.candleService.getReviewsByCandle(this.candle.id).subscribe(
+            (serverReviews) => {
+              this.reviews = serverReviews;
+            },
+            (error) => {
+              console.error('Error fetching reviews:', error);
+            }
+          );
+        },
+        (error) => {
+          console.error('Error fetching candle:', error);
+        }
+      );
   }
-);
-}
 
-addToCart() {
-  this.cartService.addToCart(this.candle);
-  this.router.navigateByUrl('/cart-page');
-}
+  addToCart() {
+    this.cartService.addToCart(this.candle);
+    this.router.navigateByUrl('/cart-page');
+  }
 }

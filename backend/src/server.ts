@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 
 dotenv.config();
-
+import path from 'path'
 import express from "express";
 import cors from "cors";
 import candleRouter from './routers/candle.router';
@@ -23,7 +23,10 @@ app.use("/api/users", userRouter);
 app.use("/api/reviews", reviewRouter);
 app.use("/api/orders", orderRouter);
 
-
+app.use(express.static('public'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 
 const port = process.env.PORT || 5001;
