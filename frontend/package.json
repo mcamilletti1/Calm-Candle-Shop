@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm install --force && ng build --configuration production"
+    "prebuild": "npm cache clean --force",
+    "build": "npm install --force && npm run build:prod"
   },
   "private": true,
   "dependencies": {
