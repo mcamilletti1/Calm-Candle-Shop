@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "prebuild": "npm cache clean --force",
-    "build": "npm install --force && npm run build:prod"
+    "build": "npm install --force && ng build --prod"
   },
   "private": true,
   "dependencies": {
