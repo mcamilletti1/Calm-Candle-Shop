@@ -1,6 +1,6 @@
 import { environment } from 'src/environments/environment'
 
-export const BASE_URL = environment.production? '' : 'http://localhost:5000';
+export const BASE_URL = environment.production? '' : 'https://calm-candle-shop.onrender.com';
 
 export const CANDLES_URL = BASE_URL + '/api/candles';
 export const REVIEWS_URL = BASE_URL + '/api/reviews'
