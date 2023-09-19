@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if(user.token)
     {
       request = request.clone({
-        setHeaders: {
+        setHeaders:{
           access_token: user.token
         }
       })
