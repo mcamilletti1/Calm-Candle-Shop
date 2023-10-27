@@ -9,7 +9,7 @@ export const candles: Candle[] = [
         price: 31,
         favorite: false,
         stars: 5,
-        imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/tbt/OUPR73CMB5EM7IJNWUBXTKOMXY.jpeg',
+        imageUrl: 'src/assets/images/autumn-daydream.jpg',
         tags: ['autumn', 'fresh and clean'],
         scents: ['clove', 'lavender', 'basalm', 'clary sage', 'persimmon', 'rhubarb', 'lavender', 'geranium', 'eucalyptus woods', 'basalm'],
         reviews: ['0', '1', '2'], 
