@@ -22,7 +22,7 @@ export class StarRatingComponent {
   }
 
   getStarImage(current: number): string{
-    const previousHalf = current = 0.5;
+    const previousHalf = current - 0.5;
     const imageName = 
     this.stars >= current
     ? 'star'
