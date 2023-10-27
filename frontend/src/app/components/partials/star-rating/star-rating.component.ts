@@ -15,10 +15,10 @@ export class StarRatingComponent {
 
   get styles() {
     return {
-      'width.rem': this.size,
-      'height.rem': this.size,
-      'marginRight.rem': this.size / 6,
-    }
+      'width': `${this.size}rem`,
+      'height': `${this.size}rem`,
+      'marginRight': `${this.size / 6}rem`,
+    };
   }
 
   getStarImage(current: number): string{
