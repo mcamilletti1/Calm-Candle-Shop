@@ -6,7 +6,7 @@ export const candles: any[] = [
         price: 31,
         favorite: false,
         stars: 5,
-        imageUrl: './src/assets/images/candle1.jpg',
+        imageUrl: './src/assets/images/candle1.jpeg',
         tags: ['autumn', 'fresh and clean'],
         scents: ['clove', 'lavender', 'basalm', 'clary sage', 'persimmon', 'rhubarb', 'lavender', 'geranium', 'eucalyptus woods', 'basalm'],
         description: 'Spend the perfect autumn day strolling tree-lined streets with the scents of clove, lavender, balsam, and eucalyptus woods.'
@@ -16,7 +16,7 @@ export const candles: any[] = [
         price: 31,
         favorite: false,
         stars: 4.8,
-        imageUrl: './assets/images/candle2.jpg',
+        imageUrl: './assets/images/candle2.jpeg',
         tags: ['autumn', 'woody'],
         scents: ['cardamom', 'black vanilla', 'smoked oud', 'bergamot', 'red cedar', 'birch bark', 'amber', 'suede', 'burnished leather', 'mahogany wood'],
         description: 'Feel the cool autumn breeze on a twilight walk along the river, with the scents of cardamom, black vanilla, and smoked oud.'
@@ -26,7 +26,7 @@ export const candles: any[] = [
         price: 31,
         favorite: false,
         stars: 5,
-        imageUrl: './assets/images/candle3.jpg',
+        imageUrl: './assets/images/candle3.jpeg',
         tags: ['autumn', 'sweet & spicy'],
         scents: ['cinnamon sugar', 'brown butter', 'spiced pumpkin', 'maple glaze', 'glazed icing', 'caramel', 'spiced croissant dough', 'pumpkin', 'vanilla icing', 'maple'],
         description: 'Enjoy the fragrance of this creamy, delicious treat, with cinnamon sugar, brown butter, spiced pumpkin, and maple glaze.'
@@ -66,7 +66,7 @@ export const candles: any[] = [
         price: 12,
         favorite: false,
         stars: 4.6,
-        imageUrl: './assets/images/candle7.jpg',
+        imageUrl: './assets/images/candle7.jpeg',
         tags: ['winter', 'fruity'],
         scents: ['cinnamon leaf', 'golden apples', 'clove', 'apple peel', 'cracked walnuts', 'brown sugar', 'vanilla', 'amber', 'melted butter', 'maple syrup'],
         description: 'A happy holiday homecoming with the festive aroma of sweet apples, cinnamon, walnuts, and maple. '
@@ -76,7 +76,7 @@ export const candles: any[] = [
         price: 13,
         favorite: false,
         stars: 4.8,
-        imageUrl: './assets/images/candle8.jpg',
+        imageUrl: './assets/images/candle8.jpeg',
         tags: ['spring', 'citrus'],
         scents: ['lemon zest', 'tart lemon', 'vanilla', 'sugar'],
         description: 'So fresh and full of zest, like a bright day exploring hillside villages with sweet unexpected turns.'
@@ -86,7 +86,7 @@ export const candles: any[] = [
         price: 34,
         favorite: false,
         stars: 4.8,
-        imageUrl: './assets/images/candle9.jpg',
+        imageUrl: './assets/images/candle9.jpeg',
         tags: ['spring', 'citrus'],
         scents: ['tangerine', 'lemon', 'lavender', 'orange', 'vanilla'],
         description: 'Clean and inviting...a powdery fresh blend of tangy lemon citrus and sweet lavender flowers. '
