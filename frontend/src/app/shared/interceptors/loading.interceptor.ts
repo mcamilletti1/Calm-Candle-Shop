@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpEventType
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { LoadingService } from 'src/app/services/loading.service';
 var pendingRequests = 0;
 
