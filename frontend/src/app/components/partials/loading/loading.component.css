@@ -10,11 +10,17 @@
 
 .details {
     display: flex;
-    position: relative;
     flex-direction: column;
     justify-content: center;
     height: 80%;
     width: 100%;
+    align-items: center;
+}
+
+img{
+    border-bottom: 10px solid grey;
+    width: 200px;
+    height: 200px;
 }
 
 h1 {
