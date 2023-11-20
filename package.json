@@ -11,5 +11,8 @@
   },
   "dependencies": {
     "angular-star-rating": "^7.0.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "^17.0.1"
   }
 }
