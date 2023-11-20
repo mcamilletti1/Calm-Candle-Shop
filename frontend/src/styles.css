@@ -3,7 +3,6 @@
 
 *{
     box-sizing: border-box;
-    background-color: black;
 }
 
 html{
@@ -17,7 +16,7 @@ button{
 
 body{
     margin: 0;
-    background-color: rgb(242, 213, 188);
+    background-color: black;
 }
 
 a{
