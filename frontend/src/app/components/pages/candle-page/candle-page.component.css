@@ -49,6 +49,14 @@ img{
     color: grey;
 }
 
+.favorite:hover {
+    cursor: pointer;
+}
+
+.favorite.not:hover {
+    cursor: pointer;
+}
+
 .scents{
     display: flex;
     flex-wrap: wrap;
