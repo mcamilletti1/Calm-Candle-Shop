@@ -50,6 +50,11 @@ export class CandlePageComponent implements OnInit {
       );
   }
 
+  toggleFavorite(): void {
+    this.candle.favorite = !this.candle.favorite;
+    localStorage.setItem(`favorite_${this.candle.id}`, this.candle.favorite.toString());
+  }
+
   addToCart() {
     this.cartService.addToCart(this.candle);
     this.router.navigateByUrl('/cart-page');

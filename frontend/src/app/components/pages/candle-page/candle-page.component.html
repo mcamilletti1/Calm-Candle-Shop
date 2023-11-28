@@ -10,9 +10,10 @@ resetLinkText="Go home">
             <span class="name">
                {{candle.name}} 
             </span>
-            <span class="favorite {{candle.favorite? '': 'not'}}">
-                ❤
-            </span>
+            <span class="favorite" (click)="toggleFavorite()" [ngClass]="{'not': !candle.favorite}">
+              ❤
+           </span>
+           
         </div>
         <div class="rating">
             <star-rating [stars]="candle.stars" [size]="1.8" />  
