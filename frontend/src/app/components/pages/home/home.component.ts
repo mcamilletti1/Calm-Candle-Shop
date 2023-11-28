@@ -29,4 +29,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  toggleFavorite(candle: Candle): void {
+    candle.favorite = !candle.favorite;
+    localStorage.setItem(`favorite_${candle.id}`, candle.favorite.toString());
+  }
 }
