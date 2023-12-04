@@ -27,7 +27,7 @@ export class StarRatingComponent {
     this.stars >= current
     ? 'star'
     : this.stars >= previousHalf
-    ? 'half-star-sharp'
+    ? 'star-half-sharp'
     : 'star-outline';
     return `/assets/stars/${imageName}.svg`;
   }
