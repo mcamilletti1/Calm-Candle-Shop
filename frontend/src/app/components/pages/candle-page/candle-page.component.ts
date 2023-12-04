@@ -43,11 +43,11 @@ export class CandlePageComponent implements OnInit {
               this.reviews = serverReviews;
 
               if (this.reviews.length > 0) {
-                let totalRating = 0;
+                let rating = 0;
                 for (const review of this.reviews) {
-                  totalRating += review.rating;
+                  rating += review.rating;
                 }
-                this.rating = totalRating / this.reviews.length;
+                this.rating = rating / this.reviews.length;
               }
             },
             (error) => {
