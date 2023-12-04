@@ -15,7 +15,7 @@ import { switchMap } from 'rxjs/operators';
 export class CandlePageComponent implements OnInit {
   candle!: Candle;
   reviews: Review[] = [];
-  averageRating: number = 0;
+  rating: number = 0;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -47,7 +47,7 @@ export class CandlePageComponent implements OnInit {
                 for (const review of this.reviews) {
                   totalRating += review.rating;
                 }
-                this.averageRating = totalRating / this.reviews.length;
+                this.rating = totalRating / this.reviews.length;
               }
             },
             (error) => {
