@@ -13,7 +13,7 @@ import { Review } from 'src/app/shared/models/Review'; // Import your Review mod
 })
 export class HomeComponent implements OnInit {
   candles: Candle[] = [];
-  rating: { [key: number]: number } = {}; // Object to store average ratings for each candle
+  rating: number = 0;
 
   constructor(
     private candleService: CandleService,
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
                   rating += review.rating;
                 }
                 rating = rating / serverReviews.length;
-              } 
+              }
             },
             (error) => {
               console.error('Error fetching reviews:', error);
@@ -61,4 +61,3 @@ export class HomeComponent implements OnInit {
   }
 }
 
-}
