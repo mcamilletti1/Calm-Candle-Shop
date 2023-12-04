@@ -119,3 +119,11 @@ button:hover{
     opacity: 0.9;
     cursor: pointer;
 }
+
+.reviews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3rem;
+}
