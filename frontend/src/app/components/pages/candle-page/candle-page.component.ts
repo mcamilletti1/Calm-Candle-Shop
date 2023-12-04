@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CandleService } from 'src/app/services/candle.service';
+import { ReviewService } from 'src/app/services/review.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Candle } from 'src/app/shared/models/Candle';
 import { Review } from 'src/app/shared/models/Review';
@@ -18,6 +19,7 @@ export class CandlePageComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private candleService: CandleService,
+    private reviewService: ReviewService,
     private cartService: CartService,
     private router: Router
   ) {}
@@ -35,7 +37,7 @@ export class CandlePageComponent implements OnInit {
       .subscribe(
         (serverCandle) => {
           this.candle = serverCandle;
-          this.candleService.getReviewsByCandle(this.candle.id).subscribe(
+          this.reviewService.getReviewsByCandle(this.candle.id).subscribe(
             (serverReviews) => {
               this.reviews = serverReviews;
             },
