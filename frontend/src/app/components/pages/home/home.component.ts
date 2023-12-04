@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { CandleService } from 'src/app/services/candle.service';
 import { ReviewService } from 'src/app/services/review.service';
 import { Candle } from 'src/app/shared/models/Candle';
-import { Review } from 'src/app/shared/models/Review'; // Import your Review model
+import { Review } from 'src/app/shared/models/Review'; 
+
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { Review } from 'src/app/shared/models/Review'; // Import your Review mod
 })
 export class HomeComponent implements OnInit {
   candles: Candle[] = [];
-  rating: number = 0;
+  averageRatings: { [key: number]: number } = {};
 
   constructor(
     private candleService: CandleService,
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
         this.candles = serverCandles;
 
         for (const candle of this.candles) {
+          const candleIdAsNumber = parseInt(candle.id, 10);
           this.reviewService.getReviewsByCandle(candle.id).subscribe(
             (serverReviews) => {
               if (serverReviews.length > 0) {
@@ -40,7 +42,9 @@ export class HomeComponent implements OnInit {
                 for (const review of serverReviews) {
                   rating += review.rating;
                 }
-                rating = rating / serverReviews.length;
+                this.averageRatings[candleIdAsNumber] = rating / serverReviews.length;
+              } else {
+                this.averageRatings[candleIdAsNumber] = 0;
               }
             },
             (error) => {
@@ -58,6 +62,10 @@ export class HomeComponent implements OnInit {
   toggleFavorite(candle: Candle): void {
     candle.favorite = !candle.favorite;
     localStorage.setItem(`favorite_${candle.id}`, candle.favorite.toString());
+  }
+
+  stringToNumber(value: string): number {
+    return parseInt(value, 10);
   }
 }
 

@@ -16,7 +16,7 @@ resetLinkText="Reset Search">
                 ❤
                 </span>
                <div class="stars">
-                <star-rating [stars]="rating" />
+                <star-rating [stars]="averageRatings[stringToNumber(candle.id)]" />
                </div>
                <div class="product-item-footer">
                 <div class="origins">
