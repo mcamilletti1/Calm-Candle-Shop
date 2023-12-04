@@ -15,6 +15,7 @@ import { Review } from 'src/app/shared/models/Review';
 export class HomeComponent implements OnInit {
   candles: Candle[] = [];
   averageRatings: { [key: number]: number } = {};
+  reviews: Review[] = [];
 
   constructor(
     private candleService: CandleService,
@@ -33,10 +34,11 @@ export class HomeComponent implements OnInit {
       candlesObservable.subscribe((serverCandles) => {
         this.candles = serverCandles;
 
-        for (const candle of this.candles) {
+        for (const candle of serverCandles) {
           const candleIdAsNumber = parseInt(candle.id, 10);
           this.reviewService.getReviewsByCandle(candle.id).subscribe(
             (serverReviews) => {
+              this.reviews = serverReviews;
               if (serverReviews.length > 0) {
                 let rating = 0;
                 for (const review of serverReviews) {
