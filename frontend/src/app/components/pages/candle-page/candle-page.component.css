@@ -124,4 +124,5 @@ button:hover{
     display: flex;
     flex-wrap: wrap;
     margin: 3rem;
+    flex-direction: column;
 }
