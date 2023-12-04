@@ -41,23 +41,23 @@ resetLinkText="Go home">
 
         <button (click)="addToCart()">Add To Cart</button>
 
+        </div>
         <div class="reviews" *ngIf="reviews && reviews.length > 0">
-            <h2>Reviews</h2>
-            <div class="review" *ngFor="let review of reviews">
-              <div class="review-header">
-                <div class="review-rating">
-                  <star-rating [stars]="review.rating" [size]="1.8"></star-rating>
-                </div>
-                <div class="review-title">
-                  <span>{{ review.title }}</span>
-                </div>
+          <h2>Reviews</h2>
+          <div class="review" *ngFor="let review of reviews">
+            <div class="review-header">
+              <div class="review-rating">
+                <star-rating [stars]="review.rating" [size]="1.8"></star-rating>
               </div>
-              <div class="review-name">
-                <span>{{ review.name }}</span>
+              <div class="review-title">
+                <span>{{ review.title }}</span>
               </div>
-              <div class="comment">
-                <span>{{ review.comment }}</span>
-              </div>
+            </div>
+            <div class="review-name">
+              <span>{{ review.name }}</span>
+            </div>
+            <div class="comment">
+              <span>{{ review.comment }}</span>
             </div>
           </div>
         </div>
