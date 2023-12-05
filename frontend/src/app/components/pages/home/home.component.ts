@@ -13,8 +13,6 @@ import { Review } from 'src/app/shared/models/Review';
 })
 export class HomeComponent implements OnInit {
   candles: Candle[] = [];
-  averageRatings: { [key: string]: number } = {}; // Change the key type to string
-  reviews: Review[] = [];
 
   constructor(
     private candleService: CandleService,
@@ -36,24 +34,19 @@ export class HomeComponent implements OnInit {
       candlesObservable.subscribe((serverCandles) => {
         this.candles = serverCandles;
 
+        // Iterate through the candles and fetch reviews for each
         for (const candle of serverCandles) {
           this.reviewService.getReviewsByCandle(candle.id).subscribe(
             (serverReviews) => {
-              this.reviews = serverReviews;
-
-              if (serverReviews.length > 0) {
-                let rating = 0;
-
-                for (const review of serverReviews) {
-                  rating += review.rating;
-                }
-
-                // Store the average rating using the candle's id as the key
-                this.averageRatings[candle.id] = rating / serverReviews.length;
-              } else {
-                // If there are no reviews, set the average rating to 0
-                this.averageRatings[candle.id] = 0;
+              // Calculate the average rating for this candle
+              let totalRating = 0;
+              for (const review of serverReviews) {
+                totalRating += review.rating;
               }
+              const averageRating = serverReviews.length > 0 ? totalRating / serverReviews.length : 0;
+
+              // Update the candle's average rating
+              candle.stars = averageRating;
             },
             (error) => {
               console.error('Error fetching reviews:', error);
