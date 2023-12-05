@@ -6,7 +6,6 @@ import { ReviewService } from 'src/app/services/review.service';
 import { Candle } from 'src/app/shared/models/Candle';
 import { Review } from 'src/app/shared/models/Review'; 
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,39 +13,46 @@ import { Review } from 'src/app/shared/models/Review';
 })
 export class HomeComponent implements OnInit {
   candles: Candle[] = [];
-  averageRatings: { [key: number]: number } = {};
+  averageRatings: { [key: string]: number } = {}; // Change the key type to string
   reviews: Review[] = [];
 
   constructor(
     private candleService: CandleService,
     private reviewService: ReviewService,
     private activatedRoute: ActivatedRoute
-  ) {
-    let candlesObservable: Observable<Candle[]>;
-    activatedRoute.params.subscribe((params) => {
+  ) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      let candlesObservable: Observable<Candle[]>;
+
       if (params.searchTerm)
         candlesObservable = this.candleService.getAllCandlesBySearchTerm(params.searchTerm);
       else if (params.tag)
         candlesObservable = this.candleService.getAllCandlesByTag(params.tag);
       else
-        candlesObservable = candleService.getAll();
+        candlesObservable = this.candleService.getAll();
 
       candlesObservable.subscribe((serverCandles) => {
         this.candles = serverCandles;
 
         for (const candle of serverCandles) {
-          const candleIdAsNumber = parseInt(candle.id, 10);
           this.reviewService.getReviewsByCandle(candle.id).subscribe(
             (serverReviews) => {
               this.reviews = serverReviews;
+
               if (serverReviews.length > 0) {
                 let rating = 0;
+
                 for (const review of serverReviews) {
                   rating += review.rating;
                 }
-                this.averageRatings[candleIdAsNumber] = rating / serverReviews.length;
+
+                // Store the average rating using the candle's id as the key
+                this.averageRatings[candle.id] = rating / serverReviews.length;
               } else {
-                this.averageRatings[candleIdAsNumber] = 0;
+                // If there are no reviews, set the average rating to 0
+                this.averageRatings[candle.id] = 0;
               }
             },
             (error) => {
@@ -58,9 +64,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
   toggleFavorite(candle: Candle): void {
     candle.favorite = !candle.favorite;
     localStorage.setItem(`favorite_${candle.id}`, candle.favorite.toString());
@@ -70,4 +73,3 @@ export class HomeComponent implements OnInit {
     return parseInt(value, 10);
   }
 }
-
