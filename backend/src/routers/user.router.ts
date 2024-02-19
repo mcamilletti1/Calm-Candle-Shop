@@ -55,7 +55,8 @@ router.post('/register', asyncHandler(
       email: email.toLowerCase(),
       password: encryptedPassword,
       address,
-      isAdmin: false
+      isAdmin: false,
+      profilePic: 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'
     }
 
     const dbUser = await UserModel.create(newUser);
@@ -76,6 +77,7 @@ router.post('/register', asyncHandler(
       name: user.name,
       address: user.address,
       isAdmin: user.isAdmin,
+      profilePic: user.profilePic,
       token: token
     };
   }
