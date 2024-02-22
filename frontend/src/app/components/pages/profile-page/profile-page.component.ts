@@ -9,7 +9,7 @@ import { User } from 'src/app/shared/models/User';
     styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-    user: User;
+    user: User | undefined;
 
     constructor(private userService: UserService) { }
 
