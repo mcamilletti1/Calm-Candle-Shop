@@ -1,3 +1,16 @@
 #profilePic {
     border-radius: 50%
 }
+
+#profile {
+    margin-left: 20px;
+}
+
+.profile-label {
+    color: black;
+}
+
+.profile-info {
+    color: grey;
+}
+
