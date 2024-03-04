@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { CartService } from 'src/app/services/cart.service';
-import { OrderService } from 'src/app/services/order.service';
 import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/shared/models/User';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,12 +8,21 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+    
+  user!:User;
   constructor( 
     private userService: UserService) {
-    
+        userService.userObservable.subscribe((newUser) => {
+            this.user = newUser;
+          })
      }
 
   ngOnInit(): void{
-    let {name, address, email} = this.userService.currentUser;
+    let {name, address, email, profilePic} = this.userService.currentUser;
+}
 
-}}
+get isAuth(){
+    return this.user.token;
+  }
+  
+}

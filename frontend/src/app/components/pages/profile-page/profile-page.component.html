@@ -1,8 +1,8 @@
 <div class="container">
-<div>
+<div *ngIf="isAuth" id="profile">
     <h2>User Profile</h2>
-    <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" id="profilePic"/>
-    <p><strong>Name: </strong>Mimi Rodriguez</p>
-    <p><strong>Email: </strong>mimirodriguez@gmail.com</p>
+    <img [src]="user.profilePic" id="profilePic"/>
+    <p class="profile-info"><strong class="profile-label">Name: </strong>{{ user.name }}</p>
+    <p class="profile-info"><strong class="profile-label">Email: </strong>{{ user.email }}</p>
 </div>
 </div>
