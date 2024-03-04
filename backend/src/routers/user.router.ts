@@ -43,7 +43,7 @@ router.post('/register', asyncHandler(
     const user = await UserModel.findOne({email});
     if(user){
       res.status(HTTP_BAD_REQUEST)
-      .send('User is already exist, please login!');
+      .send('User already exists, please login!');
       return;
     }
 
@@ -66,7 +66,7 @@ router.post('/register', asyncHandler(
 
   const generateTokenReponse = (user : User) => {
     const token = jwt.sign({
-      id: user.id, email:user.email, isAdmin: user.isAdmin
+      id: user.id, email:user.email, isAdmin: user.isAdmin, profilePic: user.profilePic
     },`${process.env.JWT_SECRET!}`,{
       expiresIn:"30d"
     });
