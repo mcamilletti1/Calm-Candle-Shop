@@ -5,21 +5,6 @@ import asyncHandler from 'express-async-handler';
 import { User, UserModel } from '../models/user.model';
 import { HTTP_BAD_REQUEST } from '../constants/http_status';
 import bcrypt from 'bcryptjs';
-import multer from 'multer';
-import path from 'path';
-
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function(req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
-});
-
-
-
-const upload = multer({ storage: storage });
 
 
 const router = Router();
@@ -78,21 +63,6 @@ router.post('/register', asyncHandler(
     res.send(generateTokenReponse(dbUser));
   }
 ))
-
-router.put('/upload-profile-pic', upload.single('profilePic'), asyncHandler(async (req, res) => {
-  const file = req.file;
-  if (!file) {
-    return res.status(400).send('Please upload a file')
-  }
-
-  const userId = req.user.id;
-
-  const profilePicUrl = `${req.protocol}://${req.get('host')}/uploads/${file.filename}`;
-
-  await UserModel.findByIdAndUpdate(userId, { profilePic: profilePicUrl }, { new: true });
-
-  res.send({ profilePic: profilePicUrl });
-}))
 
   const generateTokenReponse = (user : User) => {
     const token = jwt.sign({
