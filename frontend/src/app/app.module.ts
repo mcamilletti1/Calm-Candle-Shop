@@ -28,6 +28,7 @@ import { PaymentPageComponent } from './components/pages/payment-page/payment-pa
 import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
 import { LoadingComponent } from './components/partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
     OrderItemsListComponent,
     PaymentPageComponent,
     OrderTrackPageComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
