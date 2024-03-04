@@ -18,11 +18,11 @@ export class ProfilePageComponent implements OnInit {
      }
 
   ngOnInit(): void{
-    let {name, address, email, profilePic} = this.userService.currentUser;
+    this.user = this.userService.currentUser;
 }
 
 get isAuth(){
     return this.user.token;
   }
-  
+
 }

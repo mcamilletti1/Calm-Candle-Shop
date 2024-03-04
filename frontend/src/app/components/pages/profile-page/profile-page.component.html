@@ -1,5 +1,5 @@
-<div class="container">
-<div *ngIf="user" id="profile">
+<div class="container" *ngIf="user">
+<div id="profile">
     <h2>User Profile</h2>
     <img [src]="user.profilePic" id="profilePic"/>
     <p class="profile-info"><strong class="profile-label">Name: </strong>{{ user.name }}</p>
