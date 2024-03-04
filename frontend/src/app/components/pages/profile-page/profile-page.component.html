@@ -1,7 +1,7 @@
 <div class="container" *ngIf="user">
 <div id="profile">
     <h2>User Profile</h2>
-    <img src="https://images.pexels.com/photos/1837158/pexels-photo-1837158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="profilePic"/>
+    <img [src]="user.profilePic" id="profilePic"/>
     <p class="profile-info"><strong class="profile-label">Name: </strong>{{ user.name }}</p>
     <p class="profile-info"><strong class="profile-label">Email: </strong>{{ user.email }}</p>
 </div>
