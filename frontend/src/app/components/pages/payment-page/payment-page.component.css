@@ -38,5 +38,17 @@
     width: 35rem;
 }
 
+#stripe-button {
+    color: white;
+    background-color: rgb(92, 125, 92);
+    width: 100%;
+    height: 3rem;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 2px 2px grey;
+}
+
 
 
