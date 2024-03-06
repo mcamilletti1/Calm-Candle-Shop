@@ -27,6 +27,17 @@
     flex-basis: 5rem;
 }
 
+.buttons-container{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    margin: 2rem;
+    width: 35rem;
+}
+
 #stripe-button {
     color: white;
     background-color: rgb(92, 125, 92);
