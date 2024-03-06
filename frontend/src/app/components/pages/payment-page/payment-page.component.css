@@ -50,5 +50,27 @@
     box-shadow: 2px 2px 2px 2px grey;
 }
 
+#stripe-button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#thankyou {
+   padding: 1rem;
+   color: white;
+   background: rgb(92, 125, 92);
+   display: block;
+   width: 99%;
+   border-radius: 1rem; 
+   text-align: center;
+   opacity: 0.7;
+   justify-self: center;
+}
+
+#thankyou:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
 
 
