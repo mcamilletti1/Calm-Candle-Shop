@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterPageComponent},
   {path: 'checkout', component: CheckoutPageComponent, canActivate:[AuthGuard]},
   {path: 'payment', component: PaymentPageComponent, canActivate:[AuthGuard]},
-  {path: 'track/:orderId', component: OrderTrackPageComponent, canActivate:[AuthGuard]},
+  {path: 'thankyou', component: OrderTrackPageComponent, canActivate:[AuthGuard]},
   {path: 'profile', component: ProfilePageComponent, canActivate:[AuthGuard]}
 ];
 
