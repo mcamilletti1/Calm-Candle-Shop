@@ -123,6 +123,7 @@ button:hover{
 .reviews {
     display: flex;
     flex-wrap: wrap;
-    margin: 4rem;
+    margin: 3rem;
     flex-direction: column;
+    max-width: 40rem;
 }
