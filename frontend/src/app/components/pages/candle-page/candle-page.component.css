@@ -121,9 +121,12 @@ button:hover{
 }
 
 .reviews {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    margin: 3rem;
     flex-direction: column;
-    max-width: 40rem;
+    flex: 1 0;
+    border: 3 rem;
+    padding: 2rem;
+    color: black;
+    margin-left: 1rem;
 }
